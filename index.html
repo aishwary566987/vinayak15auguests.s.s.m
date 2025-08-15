@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>15 अगस्त विशेष | सरस्वती शिशु/विद्या मंदिर सेनापति (फर्रुखाबाद, उ.प्र.)</title>
+  <meta name="description" content="15 अगस्त (भारतीय स्वतंत्रता दिवस) के अवसर पर सरस्वती शिशु/विद्या मंदिर सेनापति, फर्रुखाबाद का रंगीन, आधुनिक और 3D इफेक्ट्स वाला पेज।" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%87%AE%F0%9F%87%B3%3C/text%3E%3C/svg%3E">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            saffron: '#FF9933',
+            indiaGreen: '#138808',
+            ashoka: '#0a5aa1'
+          },
+          backgroundImage: {
+            tricolor: 'linear-gradient(180deg, #FF9933 0%, #ffffff 50%, #138808 100%)',
+            triDiag: 'linear-gradient(135deg, rgba(255,153,51,.25) 0%, rgba(255,255,255,.25) 50%, rgba(19,136,8,.25) 100%)',
+          },
+          boxShadow: {
+            glow: '0 10px 30px rgba(10,90,161,.35)',
+          },
+          animation: {
+            float: 'float 6s ease-in-out infinite',
+            slowspin: 'slowspin 12s linear infinite',
+            marquee: 'marquee 30s linear infinite',
+            pop: 'pop .8s ease both',
+          },
+          keyframes: {
+            float: {
+              '0%,100%': { transform: 'translateY(-4px)' },
+              '50%': { transform: 'translateY(6px)' }
+            },
+            slowspin: { '0%': { transform: 'rotate(0)' }, '100%': { transform: 'rotate(360deg)' } },
+            marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+            pop: { '0%': { opacity: 0, transform: 'scale(.95)' }, '100%': { opacity: 1, transform: 'scale(1)' } }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS (scroll animations) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Swiper (touch slider) -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
+  <!-- GLightbox (image lightbox) -->
+  <link rel="stylesheet" href="https://unpkg.com/glightbox/dist/css/glightbox.min.css" />
+
+  <style>
+    /* फायरवर्क/कंफ़ेटी जैसा फ्लोटिंग इमोजी */
+    .float-emoji { position: absolute; pointer-events: none; font-size: 22px; opacity: .9; }
+    /* हीरो बैकड्रॉप डेकोरेशन */
+    .tri-ring { background: conic-gradient(from 0deg, #FF9933, white, #138808, #0a5aa1, #FF9933); filter: blur(20px); }
+    /* कार्ड ग्लास इफेक्ट */
+    .glass { background: rgba(255,255,255,.15); backdrop-filter: blur(8px); }
+    /* स्पिन ऑन-स्क्रॉल (जब विज़िबल) */
+    .spin-on-scroll { transition: transform 1s ease; }
+    .spin-on-scroll.in-view { transform: rotate(360deg); }
+    /* सरल मासनरी जैसा ग्रिड */
+    .masonry { column-count: 1; column-gap: 1rem; }
+    @media(min-width:640px){ .masonry{ column-count: 2; } }
+    @media(min-width:1024px){ .masonry{ column-count: 3; } }
+    .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
+
+    /* लोडिंग एनीमेशन */
+    .loader { width: 48px; height: 48px; border: 4px solid rgba(10,90,161,.25); border-left-color: #0a5aa1; border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg);} }
+
+    /* ट्राई-कलर बॉर्डर */
+    .tri-border { border-image: linear-gradient(90deg,#FF9933,#fff,#138808) 1; border-width: 3px; border-style: solid; }
+  </style>
+</head>
+<body class="bg-triDiag text-gray-900 selection:bg-ashoka/20 selection:text-ashoka">
+  <!-- फ्लोटिंग इमोजी लेयर -->
+  <div id="emoji-layer" class="fixed inset-0 overflow-hidden pointer-events-none" aria-hidden="true"></div>
+
+  <!-- टॉप नोटिस बार -->
+  <div class="w-full bg-saffron/90 text-white text-sm py-2 text-center">
+    🇮🇳 15 अगस्त विशेष: स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ! 🇮🇳
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 border-b tri-border">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between p-3">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-full bg-ashoka/10 grid place-items-center shadow-glow">
+          <span class="animate-slowspin">🕉️</span>
+        </div>
+        <h1 class="font-extrabold text-base sm:text-lg leading-tight">
+          <span class="text-ashoka">सरस्वती शिशु / विद्या मंदिर</span>
+          <span class="block text-xs sm:text-sm text-gray-600">सेनापति, फर्रुखाबाद (उ.प्र.)</span>
+        </h1>
+      </div>
+      <div class="hidden md:flex items-center gap-6 font-medium">
+        <a href="#hero" class="hover:text-ashoka">होम</a>
+        <a href="#message" class="hover:text-ashoka">संदेश</a>
+        <a href="#gallery" class="hover:text-ashoka">गैलरी</a>
+        <a href="#teachers" class="hover:text-ashoka">शिक्षक</a>
+        <a href="#about" class="hover:text-ashoka">विद्यालय</a>
+        <a href="#contact" class="hover:text-ashoka">संपर्क</a>
+      </div>
+      <button id="openGreeting" class="md:hidden px-3 py-2 rounded-xl bg-ashoka text-white shadow-glow">शुभकामना</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="relative overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-[400px] h-[400px] rounded-full tri-ring opacity-40 animate-float"></div>
+    <div class="absolute -bottom-32 -left-24 w-[500px] h-[500px] rounded-full tri-ring opacity-30 animate-float" style="animation-delay:1.2s"></div>
+
+    <div class="max-w-7xl mx-auto px-4 py-14 sm:py-20 grid lg:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-up" class="space-y-5">
+        <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+          15 अगस्त – <span class="text-ashoka">स्वतंत्रता दिवस</span>
+        </h2>
+        <p class="text-lg text-gray-700">
+          हमें गर्व है कि हम अपने विद्यार्थियों में राष्ट्रप्रेम, अनुशासन और संस्कारों का संचार करते हैं। आज के इस पावन अवसर पर आप सभी को विद्यालय परिवार की ओर से हार्दिक शुभकामनाएँ। आइए मिलकर शहीदों के सपनों का भारत बनाएँ — जहाँ अनुशासन, संस्कार, ज्ञान और राष्ट्र-सेवा सर्वोपरि हों। आप जिस भी कक्षा में हों, आज का दिन कर्तव्य और एकता का संकल्प लेने का है। जय हिन्द
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#message" class="px-5 py-3 rounded-2xl bg-saffron text-white shadow-glow">बधाई संदेश पढ़ें</a>
+          <a href="#gallery" class="px-5 py-3 rounded-2xl bg-indiaGreen text-white shadow-glow">फोटो/वीडियो देखें</a>
+        </div>
+        <div class="flex items-center gap-3 text-sm text-gray-600">
+          <span class="px-2 py-1 rounded-lg bg-white/70 tri-border">🇮🇳 झंडा वंदन</span>
+          <span class="px-2 py-1 rounded-lg bg-white/70 tri-border">🎶 देशभक्ति कार्यक्रम</span>
+          <span class="px-2 py-1 rounded-lg bg-white/70 tri-border">15 अगस्त 2025</span>
+          <span class="px-2 py-1 rounded-lg bg-white/70 tri-border">🎓 छात्र-छात्राएँ, अभिभावक, शिक्षक</span>
+        </div>
+      </div>
+
+      <!-- 3D Tilt Card -->
+      <div class="relative" data-aos="zoom-in">
+        <div class="glass rounded-3xl p-4 sm:p-6 shadow-glow" data-tilt data-tilt-max="12" data-tilt-speed="600" data-tilt-glare data-tilt-max-glare="0.2">
+          <img src="schoolface.jpg" alt="रंगीन स्कूल वॉलपेपर" class="w-full h-72 sm:h-96 object-cover rounded-2xl tri-border" />
+          <div class="mt-4 grid grid-cols-3 gap-3">
+            <img src="school(237).jpg" alt="त्योहार" class="h-24 object-cover w-full rounded-xl tri-border spin-on-scroll" />
+            <img src="schoolhool.jpg" alt="कार्यक्रम" class="h-24 object-cover w-full rounded-xl tri-border spin-on-scroll" />
+            <img src="school(139).jpg" alt="प्रदर्शन" class="h-24 object-cover w-full rounded-xl tri-border spin-on-scroll" />
+          </div>
+          <p class="text-xs text-gray-600 mt-2"><b>"स्वतंत्रता केवल अधिकार नहीं, जिम्मेदारी भी है। सरस्वती शिशु/विद्या मन्दिर, सेनापति (फर्रुखाबाद) परिवार अनुशासन, परिश्रम और संस्कारों के साथ राष्ट्र-भक्ति का दीप सदा प्रज्वलित रहे।" वन्दे मातरम्। जय हिन्द!</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Greeting Modal -->
+  <div id="greetModal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative max-w-lg mx-auto mt-24 bg-white rounded-3xl p-6 shadow-2xl animate-pop">
+      <h3 class="text-2xl font-bold text-ashoka">स्वतंत्रता दिवस की शुभकामनाएँ</h3>
+      <p class="mt-2 text-gray-700">अपना नाम लिखें और एक संदेश चुनें। यह संदेश आपके लिए दिखेगा।</p>
+      <div class="mt-4 grid gap-3">
+        <input id="visitorName" class="w-full px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-ashoka" placeholder="अपना नाम लिखें" />
+        <select id="greetSelect" class="w-full px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-ashoka">
+          <option>🇮🇳 जय हिन्द! आप और आपके परिवार को स्वतंत्रता दिवस की हार्दिक शुभकामनाएँ।</option>
+          <option>📚 शिक्षा और संस्कार से राष्ट्र निर्माण – आपको 15 अगस्त की शुभकामनाएँ।</option>
+          <option>🎉 आइए, मिलकर तिरंगा शान से फहराएँ। स्वतंत्रता दिवस की बधाई!</option>
+        </select>
+        <button id="saveGreeting" class="px-5 py-3 rounded-2xl bg-ashoka text-white shadow-glow">संदेश दिखाएँ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message Section -->
+  <section id="message" class="py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="glass tri-border rounded-3xl p-6 sm:p-10" data-aos="fade-up">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-ashoka">विद्यालय परिवार का विशेष संदेश</h3>
+        <p id="personalGreeting" class="mt-3 text-lg text-gray-800">प्रिय अतिथि, आपको और आपके परिवार को 15 अगस्त की हार्दिक शुभकामनाएँ। शिक्षा, अनुशासन और राष्ट्रप्रेम के साथ हम एक सशक्त भारत का निर्माण करेंगे।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Touch Slider Gallery (Swiper) -->
+  <section id="gallery" class="py-12">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-end justify-between mb-4">
+        <h3 class="text-2xl font-extrabold text-ashoka">✨भारत के स्वतंत्रता संग्राम सेनानी</h3>
+        <div class="text-sm text-gray-600"></code></div>
+      </div>
+
+      <div class="swiper mySwiper rounded-3xl tri-border" data-aos="zoom-in">
+        <div class="swiper-wrapper">
+          <!-- 1 -->
+          <div class="swiper-slide">
+            <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\allindian.jpeg" class="glightbox" data-gallery="gal1">
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\allindian.jpeg" alt="कार्यक्रम 1" class="w-full h-[360px] object-cover" />
+            </a>
+          </div>
+          <!-- 2 -->
+          <div class="swiper-slide">
+            <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\BahagtSingh.jpeg" class="glightbox" data-gallery="gal1">
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\BahagtSingh.jpeg" alt="कार्यक्रम 2" class="w-full h-[360px] object-cover" />
+            </a>
+          </div>
+          <!-- 3 -->
+          <div class="swiper-slide">
+            <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\Subhashchandrabose.jpeg" class="glightbox" data-gallery="gal1">
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\Subhashchandrabose.jpeg" alt="कार्यक्रम 3" class="w-full h-[360px] object-cover" />
+            </a>
+          </div>
+          <!-- 4 -->
+          <div class="swiper-slide">
+            <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\Chandrashekhar.jpeg" class="glightbox" data-gallery="gal1">
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\Chandrashekhar.jpeg" alt="कार्यक्रम 4" class="w-full h-[360px] object-cover" />
+            </a>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <!-- Masonry Grid + Lightbox -->
+      <div class="mt-10 masonry" data-aos="fade-up">
+        <!-- मासनरी आइटम्स (आवश्यकतानुसार कॉपी/पेस्ट करें) -->
+        <div class="masonry-item">
+          <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolB.jpg" class="glightbox" data-gallery="gal2">
+            <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolB.jpg" class="w-full rounded-2xl tri-border spin-on-scroll" alt="फोटो 1" />
+          </a>
+        </div>
+        <div class="masonry-item">
+          <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\school(323).jpg" class="glightbox" data-gallery="gal2">
+            <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\school(323).jpg" class="w-full rounded-2xl tri-border spin-on-scroll" alt="फोटो 2" />
+          </a>
+        </div>
+        <div class="masonry-item">
+          <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolA.jpg" class="glightbox" data-gallery="gal2">
+            <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolA.jpg" class="w-full rounded-2xl tri-border spin-on-scroll" alt="फोटो 3" />
+          </a>
+        </div>
+        <div class="masonry-item">
+          <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolC.jpg" class="glightbox" data-gallery="gal2">
+            <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolC.jpg" class="w-full rounded-2xl tri-border spin-on-scroll" alt="फोटो 4" />
+          </a>
+          <div class="masonry-item">
+          <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolD.jpg" class="glightbox" data-gallery="gal2">
+            <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolD.jpg" class="w-full rounded-2xl tri-border spin-on-scroll" alt="फोटो 3" />
+          </a>
+        </div>
+        <div class="masonry-item">
+          <a href="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolE.jpg" class="glightbox" data-gallery="gal2">
+            <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolE.jpg" class="w-full rounded-2xl tri-border spin-on-scroll" alt="फोटो 3" />
+          </a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teachers marquee -->
+  <section id="teachers" class="py-12 bg-white/70">
+    <div class="max-w-7xl mx-auto px-4">
+      <h3 class="text-2xl font-extrabold text-ashoka mb-4">🖼️ विद्यालए की छबि ( चित्र दर्पण )</h3>
+      <div class="relative overflow-hidden rounded-3xl tri-border bg-white">
+        <div class="flex animate-marquee gap-6 p-6 will-change-transform">
+          <!-- एक ही ट्रैक को डुप्लीकेट कर 50% शिफ्ट से मारक्वी प्रभाव -->
+          <div class="flex gap-6 items-center shrink-0">
+            <div class="w-56 glass p-3 rounded-2xl text-center" data-tilt>
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolO.jpg" class="w-full h-36 object-cover rounded-xl" alt="शिक्षक 1" />
+              <p class="mt-2 font-semibold"></p>
+              <p class="text-xs text-gray-600"></p>
+            </div>
+            <div class="w-56 glass p-3 rounded-2xl text-center" data-tilt>
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolOO.jpg" class="w-full h-36 object-cover rounded-xl" alt="शिक्षक 2" />
+              <p class="mt-2 font-semibold"></p>
+              <p class="text-xs text-gray-600"></p>
+            </div>
+            <div class="w-56 glass p-3 rounded-2xl text-center" data-tilt>
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolOOO.jpg" class="w-full h-36 object-cover rounded-xl" alt="शिक्षक 3" />
+              <p class="mt-2 font-semibold"></p>
+              <p class="text-xs text-gray-600"></p>
+            </div>
+            <div class="w-56 glass p-3 rounded-2xl text-center" data-tilt>
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolOOOO.jpg" class="w-full h-36 object-cover rounded-xl" alt="शिक्षक 4" />
+              <p class="mt-2 font-semibold"></p>
+              <p class="text-xs text-gray-600"></p>
+            </div>
+          </div>
+          <div class="flex gap-6 items-center shrink-0" aria-hidden="true">
+            <!-- डुप्लीकेट -->
+            <div class="w-56 glass p-3 rounded-2xl text-center" data-tilt>
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolO.jpg" class="w-full h-36 object-cover rounded-xl" alt="शिक्षक 1" />
+              <p class="mt-2 font-semibold"></p>
+              <p class="text-xs text-gray-600"></p>
+            </div>
+            <div class="w-56 glass p-3 rounded-2xl text-center" data-tilt>
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolOO.jpg" class="w-full h-36 object-cover rounded-xl" alt="शिक्षक 2" />
+              <p class="mt-2 font-semibold"></p>
+              <p class="text-xs text-gray-600"></p>
+            </div>
+            <div class="w-56 glass p-3 rounded-2xl text-center" data-tilt>
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolOOO.jpg" class="w-full h-36 object-cover rounded-xl" alt="शिक्षक 3" />
+              <p class="mt-2 font-semibold"></p>
+              <p class="text-xs text-gray-600"></p>
+            </div>
+            <div class="w-56 glass p-3 rounded-2xl text-center" data-tilt>
+              <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolOOOO.jpg" class="w-full h-36 object-cover rounded-xl" alt="शिक्षक 4" />
+              <p class="mt-2 font-semibold"></p>
+              <p class="text-xs text-gray-600"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-xs text-gray-600 mt-2"></p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16">
+    <div class="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-right">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-ashoka">हमारा विद्यालय</h3>
+        <p class="mt-3 text-gray-800 leading-relaxed">
+          सरस्वती शिशु/विद्या मंदिर, सेनापति (फर्रुखाबाद) का उद्देश्य विद्यार्थियों में नैतिक शिक्षा, अनुशासन, संस्कृति और राष्ट्रप्रेम का विकास करना है। विद्यालय में प्रयोगशाला, पुस्तकालय, खेल-कूद और कला के भरपूर अवसर उपलब्ध हैं।
+        </p>
+        <ul class="mt-4 space-y-2 text-gray-800">
+          <li>✅ अनुभवी और समर्पित आचार्य-आचार्याएँ</li>
+          <li>✅ नियमित योग/प्रार्थना/संस्कार कार्यक्रम</li>
+          <li>✅ विज्ञान, खेल और सांस्कृतिक गतिविधियाँ</li>
+          <li>✅ सुरक्षित, स्वच्छ और प्रेरणादायक परिसर</li>
+        </ul>
+      </div>
+      <div data-aos="fade-left">
+        <div class="grid grid-cols-2 gap-3">
+          <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolI.jpg" class="rounded-2xl tri-border spin-on-scroll" alt="About 1" />
+          <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolF.jpg" class="rounded-2xl tri-border spin-on-scroll" alt="About 2" />
+          <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolG.jpg" class="rounded-2xl tri-border spin-on-scroll" alt="About 3" />
+          <img src="C:\Users\aishw\OneDrive\Desktop\chatgpt.school\schoolH.jpg" class="rounded-2xl tri-border spin-on-scroll" alt="About 4" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 bg-white/80">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="glass rounded-3xl p-6 sm:p-10 tri-border" data-aos="fade-up">
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-ashoka">संपर्क</h3>
+        <p class="mt-2 text-gray-700">प्रवेश/जानकारी हेतु संदेश भेजें।</p>
+        <form class="mt-6 grid sm:grid-cols-2 gap-4">
+          <input class="px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-ashoka" placeholder="आपका नाम" />
+          <input class="px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-ashoka" placeholder="मोबाइल" />
+          <input class="px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-ashoka sm:col-span-2" placeholder="ईमेल (वैकल्पिक)" />
+          <textarea rows="4" class="px-4 py-3 rounded-2xl border outline-none focus:ring-2 focus:ring-ashoka sm:col-span-2" placeholder="संदेश"></textarea>
+          <button type="button" class="px-5 py-3 rounded-2xl bg-indiaGreen text-white shadow-glow sm:col-span-2" onclick="alert('धन्यवाद! आपका संदेश सहेजा गया (डेमो)')">भेजें</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 text-center bg-tricolor text-gray-900 font-semibold">
+    <b>जय हिन्द</b> © <span id="year"></span> © सरस्वती शिशु/विद्या मन्दिर, सेनापति (फर्रुखाबाद, उ.प्र.) — अखिल भारतीय विद्यार्थी परिषद
+
+"मेरा देश, मेरी शान – इसकी सेवा ही मेरा सबसे बड़ा सम्मान है।"
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/glightbox/dist/js/glightbox.min.js"></script>
+
+  <script>
+    // AOS init
+    AOS.init({ once: true, duration: 700 });
+
+    // Swiper init
+    new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+    });
+
+    // Lightbox
+    const lightbox = GLightbox({ selector: '.glightbox' });
+
+    // वर्ष
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Greeting Modal Logic
+    const greetModal = document.getElementById('greetModal');
+    const openBtn = document.getElementById('openGreeting');
+    const saveBtn = document.getElementById('saveGreeting');
+    const nameInput = document.getElementById('visitorName');
+    const selectMsg = document.getElementById('greetSelect');
+    const personalGreeting = document.getElementById('personalGreeting');
+
+    function openModal(){ greetModal.classList.remove('hidden'); }
+    function closeModal(){ greetModal.classList.add('hidden'); }
+
+    // पहली बार साइट खोलने पर 2 सेकंड बाद पॉपअप
+    setTimeout(openModal, 1500);
+    openBtn?.addEventListener('click', openModal);
+    greetModal.addEventListener('click', (e)=>{ if(e.target === greetModal) closeModal(); });
+    saveBtn.addEventListener('click', ()=>{
+      const n = nameInput.value.trim();
+      const m = selectMsg.value;
+      personalGreeting.textContent = n ? `${n}, ${m}` : m;
+      closeModal();
+    });
+
+    // फ्लोटिंग इमोजी (🇮🇳 🎉 🕊️ ⭐)
+    const emojis = ['🇮🇳','🎉','🕊️','⭐','🎊','🧡','🤍','💚'];
+    const layer = document.getElementById('emoji-layer');
+    function spawnEmoji(){
+      const el = document.createElement('div');
+      el.className = 'float-emoji';
+      el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+      el.style.left = Math.random()*100 + 'vw';
+      el.style.top = '100vh';
+      const drift = (Math.random()*40 - 20) + 'px';
+      const duration = 4000 + Math.random()*4000;
+      layer.appendChild(el);
+      const start = performance.now();
+      function step(now){
+        const p = Math.min((now-start)/duration, 1);
+        el.style.transform = `translate(${drift}, ${-p*110}vh) rotate(${p*360}deg)`;
+        el.style.opacity = String(1 - p);
+        if(p < 1) requestAnimationFrame(step); else el.remove();
+      }
+      requestAnimationFrame(step);
+    }
+    setInterval(spawnEmoji, 600);
+
+    // इन-व्यू स्पिन
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in-view'); });
+    }, { threshold: .3 });
+    document.querySelectorAll('.spin-on-scroll').forEach(el=>io.observe(el));
+  </script>
+
+  <!-- उपयोग नोट्स:
+    1) अपनी फ़ोटो इस फोल्डर संरचना में रखें: /images/
+       जैसे: hero-main.jpg, hero-1.jpg, gallery-1.jpg ... teacher-1.jpg ...
+    2) हर <img src="./images/..."> का पाथ अपनी फ़ोटो के नाम से बदल दें।
+    3) होस्टिंग: GitHub Pages / Netlify / Vercel पर index.html के रूप में डिप्लॉय करें।
+  -->
+</body>
+</html>
